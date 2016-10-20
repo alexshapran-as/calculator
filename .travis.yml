@@ -1,4 +1,5 @@
-language: generic
+./configure && make && make test
+language: cpp
 os:
 - osx
 matrix:
@@ -12,7 +13,11 @@ matrix:
           sources: &sources
             - llvm-toolchain-precise
             - ubuntu-toolchain-r-test
+            compiler:  
+            - clang
+            - gcc
 script:
+- scons
 - mkdir build
 - cd build
 - cmake .. && make
